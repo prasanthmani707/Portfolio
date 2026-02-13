@@ -1,0 +1,66 @@
+---
+- name: Setup and Deploy Portfolio
+  hosts: web
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+
+    - name: Ensure Docker is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    # Note: In a real scenario, you'd use a container registry (ECR/DockerHub)
+    # For simplicity, we assume the image is built locally and transferred or pulled
+    # Here we'll just run a placeholder or pull if image exists
+    
+    - name: Pull Docker image (example)
+      docker_image:
+        name: portfolio:latest
+        source: pull
+      ignore_errors: yes 
+
+    - name: Run Portfolio Container
+      docker_container:
+        name: portfolio
+        image: portfolio:latest
+        state: started
+        ports:
+          - "3000:3000"
+        restart_policy: always
