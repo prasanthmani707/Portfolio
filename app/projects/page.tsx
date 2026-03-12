@@ -6,7 +6,7 @@ import { projects } from '../data/projects';
 
 export default function Projects() {
     return (
-        <div className="-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center overflow-x-hidden">
+        <div className="-h-screen py-7 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center ">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}

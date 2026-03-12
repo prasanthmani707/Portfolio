@@ -4,15 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { Project } from '../data/projects';
 
-interface Project {
-    slug: string;
-    title: string;
-    description: string;
-    techStack: string[];
-    github: string;
-    live: string;
-}
 
 interface ProjectCarouselProps {
     projects: Project[];
@@ -82,7 +75,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 x: '-60%',
                 scale: 0.8,
                 opacity: 0.6,
-                rotateY: 25,
+                rotateY: 15,
             };
         }
 
@@ -93,7 +86,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 x: '60%',
                 scale: 0.8,
                 opacity: 0.6,
-                rotateY: -25,
+                rotateY: -15,
             };
         }
 
@@ -108,7 +101,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
     };
 
     return (
-        <div className="relative w-full max-w-5xl mx-auto h-[200px] flex items-center justify-center perspective-1000">
+        <div className="relative w-full max-w-5xl mx-auto h-[400px] flex items-center justify-center perspective-1000">
 
             {/* Cards Container */}
             <div className="relative w-full h-full flex items-center justify-center perspective-1000 transform-style-3d">
@@ -123,16 +116,27 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                             animate={style}
                             drag={isActive ? "x" : false}
                             dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.15}
+                            dragMomentum={false}
                             data-is-active={isActive}
                             onDragEnd={(e, info) => handleDragEnd(e, info, isActive)}
-                            // Also stop auto-play on click/touch without drag
-                            onPointerDown={() => setIsAutoPlaying(false)}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className={`absolute w-[90%] md:w-[60%] h-auto max-h-[450px] bg-gray-900 border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col justify-between backdrop-blur-xl ${isActive ? 'cursor-grab active:cursor-grabbing' : ''}`}
+                            onPointerDownCapture={() => setIsAutoPlaying(false)}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 30,
+                            }}
+                            className={`absolute w-[90%] md:w-[60%] h-auto max-h-[450px] 
+    bg-gray-900 border border-white/10 rounded-2xl p-8 shadow-2xl 
+    flex flex-col justify-between backdrop-blur-xl will-change-transform
+    ${isActive ? 'cursor-grab active:cursor-grabbing' : ''}`}
                             style={{
                                 transformStyle: "preserve-3d",
+                                perspective: 1000,
+                                willChange: "transform, opacity",
                             }}
                         >
+
                             <div>
                                 <div className="flex justify-between items-start mb-6">
                                     <Link href={`/projects/${project.slug}`}>
@@ -149,15 +153,6 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                                             onPointerDown={(e) => e.stopPropagation()}
                                         >
                                             <Github className="h-6 w-6" />
-                                        </a>
-                                        <a
-                                            href={project.live}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                                            onPointerDown={(e) => e.stopPropagation()}
-                                        >
-                                            <ExternalLink className="h-6 w-6" />
                                         </a>
                                     </div>
                                 </div>
@@ -189,7 +184,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
             </div>
 
             {/* Dots Indicator */}
-            <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 flex space-x-2">
+            <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 flex space-x-2">
                 {projects.map((_, index) => (
                     <button
                         key={index}

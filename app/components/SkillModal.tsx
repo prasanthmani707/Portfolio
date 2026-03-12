@@ -74,7 +74,7 @@ export default function SkillModal({ skill, onClose }: SkillModalProps) {
                             </div>
 
                             {/* Right Column: Icon Carousel */}
-                            <div className="flex-2 flex flex-col items-center justify-center bg-white/5 rounded-xl border border-white/10 p-8 relative overflow-hidden min-h-[300px]">
+                            <div className="flex-1 flex flex-col items-center justify-center bg-white/5 rounded-xl border border-white/10 p-8 relative overflow-hidden min-h-[100px]">
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
 
                                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8 relative z-10">Related Technologies</h3>

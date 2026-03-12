@@ -32,21 +32,21 @@ const skills = [
     icon: Server,
     description: 'Infrastructure as Code (IaC) for automated provisioning.',
     details: ['Module Development', 'State Management', 'Multi-cloud Provisioning', 'Terraform Cloud Integration', 'Infrastructure Testing'],
-    relatedIcons: [Box, Layers, RefreshCw, FileJson, Workflow]
+    relatedIcons: ['/services.png','/web-development.png', '/Terraform.png', '/security.png', '/automation.png']
   },
   {
     name: 'Ansible',
     icon: Code,
     description: 'Configuration management and application deployment automation.',
-    details: ['Playbook Creation', 'Role Management', 'Inventory Management', 'Custom Modules', 'Tower/AWX Integration'],
-    relatedIcons: [Terminal, Settings, Play, Cpu, Zap]
+    details: ['Playbook Creation', 'Role Management', 'Inventory Management', 'Custom Modules'],
+    relatedIcons: ['/playbook.png','/Ansible.png','/inventory.png', '/modules.png']
   },
   {
-    name: 'Next.js',
-    icon: Globe,
+    name: 'basic programming  knowledge ',
+    icon: Code,
     description: 'Building performant and SEO-friendly web applications.',
     details: ['Server-Side Rendering (SSR)', 'Static Site Generation (SSG)', 'API Routes', 'React Hooks', 'Tailwind CSS Integration'],
-    relatedIcons: [Layout, Zap, Globe, ImageIcon, Code]
+    relatedIcons: ['/python.png', '/Next.js.png', '/java-script.png', '/no-sql.png', '/api.png','/shell script.png']
   },
   {
     name: 'Docker',
@@ -54,13 +54,6 @@ const skills = [
     description: 'Containerizing applications for consistent environments.',
     details: ['Dockerfile Optimization', 'Docker Compose', 'Multi-stage Builds', 'Container Networking', 'Volume Management'],
     relatedIcons: [Box, Layers, Database, Anchor, Server]
-  },
-  {
-    name: 'Security',
-    icon: Lock,
-    description: 'Implementing security best practices across the stack.',
-    details: ['Security Groups & NACLs', 'SSL/TLS Configuration', 'Vulnerability Scanning', 'Identity Management', 'Compliance (SOC2/HIPAA)'],
-    relatedIcons: [Shield, Key, Lock, Eye, FileWarning]
   },
 ];
 
