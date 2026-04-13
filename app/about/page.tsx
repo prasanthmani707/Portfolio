@@ -30,10 +30,11 @@ export default function About() {
                         <h2 className="text-2xl font-bold">Bio</h2>
                     </div>
                     <p className="text-gray-300 leading-relaxed mb-4">
-                        I am a passionate DevOps Engineer and Full Stack Developer with a strong foundation in cloud infrastructure and modern web technologies. I specialize in building scalable, secure, and efficient systems using AWS, Terraform, and Kubernetes.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                        With a detail-oriented approach and a drive for continuous learning, I strive to deliver high-quality solutions that solve real-world problems. When I'm not coding, you can find me exploring new technologies or contributing to open-source projects.
+                         Associate Software Engineer with strong experience in backend development and AWS serverless
+technologies. Skilled in building scalable, event-driven applications using Python and cloud
+services. Experienced in developing POCs, automating infrastructure, and building cybersecurity
+lab platforms.
+
                     </p>
                 </motion.div>
 
@@ -51,14 +52,7 @@ export default function About() {
                         </div>
                         <ul className="space-y-4 text-gray-300">
                             <li className="border-l-2 border-purple-500 pl-4">
-                                <h3 className="font-bold text-white">Senior DevOps Engineer</h3>
-                                <p className="text-sm text-gray-500">Tech Corp • 2021 - Present</p>
-                                <p className="mt-1">Managing cloud infrastructure and CI/CD pipelines.</p>
-                            </li>
-                            <li className="border-l-2 border-purple-500 pl-4">
-                                <h3 className="font-bold text-white">Full Stack Developer</h3>
-                                <p className="text-sm text-gray-500">Web Solutions • 2019 - 2021</p>
-                                <p className="mt-1">Built responsive web applications using React and Node.js.</p>
+                                <h3 className="font-bold text-white">Associate Software engineer </h3>
                             </li>
                         </ul>
                     </motion.div>
