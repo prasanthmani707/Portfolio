@@ -69,8 +69,8 @@ lab platforms.
                         </div>
                         <ul className="space-y-4 text-gray-300">
                             <li className="border-l-2 border-green-500 pl-4">
-                                <h3 className="font-bold text-white">B.S. in Computer Science</h3>
-                                <p className="text-sm text-gray-500">University of Tech • 2015 - 2019</p>
+                                <h3 className="font-bold text-white">BCA</h3>
+
                             </li>
                         </ul>
                     </motion.div>
