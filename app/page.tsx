@@ -15,11 +15,11 @@ const skills = [
   {
     name: 'AWS',
     icon: Cloud,  
-    description: 'Expertise in architecting scalable cloud solutions.',
+    description: 'Hands-on experience with AWS serverless, compute, storage, and monitoring services.',
     details: [
-      'EC2, S3, & Lambda',
+      'EC2, S3, and Lambda',
       'DynamoDB',
-      'Codebuild',
+      'CodeBuild',
       'API Gateway',
       'VPC Networking & Security',
       'IAM & Policy Management',
@@ -28,31 +28,87 @@ const skills = [
     relatedIcons: ['/lambda.png', '/DynamoDB.png', '/Simple Storage Service.png','/API Gateway.png','/Codebuild.png','/CloudWatch.png'] // Add your third image here
   },
   {
-    name: 'Terraform',
-    icon: Server,
-    description: 'Infrastructure as Code (IaC) for automated provisioning.',
-    details: ['Module Development', 'State Management', 'Multi-cloud Provisioning', 'Terraform Cloud Integration', 'Infrastructure Testing'],
-    relatedIcons: ['/services.png','/web-development.png', '/Terraform.png', '/security.png', '/automation.png']
+    name: 'Automation',
+    icon: Workflow,
+    description: 'Infrastructure provisioning and server configuration automation using Terraform and Ansible.',
+    details: [
+      'Terraform Infrastructure as Code',
+      'AWS EC2 Provisioning',
+      'Ansible Playbook Creation',
+      'Inventory Management',
+      'Automated Server Configuration',
+      'Repeatable Deployment Workflows',
+    ],
+    relatedIcons: ['/automation.png', '/Terraform.png', '/Ansible.png', '/playbook.png', '/inventory.png', '/modules.png']
   },
   {
-    name: 'Ansible',
-    icon: Code,
-    description: 'Configuration management and application deployment automation.',
-    details: ['Playbook Creation', 'Role Management', 'Inventory Management', 'Custom Modules'],
-    relatedIcons: ['/playbook.png','/Ansible.png','/inventory.png', '/modules.png']
+    name: 'Splunk & Observability',
+    icon: Eye,
+    description: 'Log monitoring, data onboarding, and distributed Splunk environment setup.',
+    details: [
+      'Splunk Standalone Setup',
+      'Search Head and Indexer Configuration',
+      'Deployment Server Management',
+      'Universal Forwarder Setup',
+      'Log Data Onboarding',
+      'SPL Search and Validation',
+    ],
+    relatedIcons: [Eye, Terminal, Server, Database, Shield]
   },
   {
-    name: 'basic programming  knowledge ',
+    name: 'Serverless Automation',
+    icon: Zap,
+    description: 'AWS Lambda deployment workflows with local testing and automated release pipelines.',
+    details: [
+      'AWS Lambda Deployment',
+      'Function Folder Organization',
+      'Local Lambda Testing',
+      'Boto3 and AWS CLI Automation',
+      'CloudWatch Log Validation',
+      'IAM Permission Handling',
+    ],
+    relatedIcons: ['/lambda.png', '/CloudWatch.png', '/automation.png', Terminal, Key]
+  },
+  {
+    name: 'FastAPI Backend',
+    icon: FileJson,
+    description: 'API backend development for automation platforms and deployment control layers.',
+    details: [
+      'REST API Development',
+      'Python Backend Logic',
+      'Local Testing Workflows',
+      'Deployment API Design',
+      'Request Validation',
+      'Automation Endpoint Design',
+    ],
+    relatedIcons: ['/python.png', '/api.png', FileJson, Code, Terminal]
+  },
+  {
+    name: 'CI/CD',
+    icon: RefreshCw,
+    description: 'Automated build and deployment workflows triggered from repository changes.',
+    details: [
+      'Git-based Deployment Flow',
+      'Automated Build Pipelines',
+      'Code Packaging',
+      'AWS CodeBuild',
+      'Deployment Validation',
+      'Repeatable Release Process',
+    ],
+    relatedIcons: ['/Codebuild.png', '/automation.png', RefreshCw, Play, Settings]
+  },
+  {
+    name: 'Programming & Backend Fundamentals',
     icon: Code,
-    description: 'Building performant and SEO-friendly web applications.',
-    details: ['Server-Side Rendering (SSR)', 'Static Site Generation (SSG)', 'API Routes', 'React Hooks', 'Tailwind CSS Integration'],
+    description: 'Python, JavaScript, APIs, and database basics for backend automation work.',
+    details: ['Python Scripting', 'JavaScript Fundamentals', 'REST API Integration', 'Next.js Basics', 'NoSQL Data Modeling', 'Shell Scripting'],
     relatedIcons: ['/python.png', '/Next.js.png', '/java-script.png', '/no-sql.png', '/api.png','/shell script.png']
   },
   {
     name: 'Docker',
     icon: Database,
-    description: 'Containerizing applications for consistent environments.',
-    details: ['Dockerfile Optimization', 'Docker Compose', 'Multi-stage Builds', 'Container Networking', 'Volume Management'],
+    description: 'Containerizing applications and services for consistent deployment environments.',
+    details: ['Dockerfile Creation', 'Docker Compose', 'Container Networking', 'Volume Management', 'Application Packaging'],
     relatedIcons: [Box, Layers, Database, Anchor, Server]
   },
 ];
@@ -71,10 +127,10 @@ export default function Home() {
         className="text-center max-w-4xl mx-auto py-20"
       >
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
-          Building <span className="text-gradient">Scalable</span> Cloud Infrastructure
+          Building <span className="text-gradient">Cloud Automation</span> Systems
         </h1>
         <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-          Hi, I'm a DevOps Engineer and Full Stack Developer. I help businesses build, deploy, and scale modern web applications on AWS.
+          Associate Software Engineer focused on AWS serverless, infrastructure automation, Splunk monitoring, and backend automation with Python and FastAPI.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <motion.div

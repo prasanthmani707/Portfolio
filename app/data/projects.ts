@@ -13,7 +13,7 @@ export interface Project {
 export const projects: Project[] = [
     {
         slug: 'credit-based-system',
-        title: 'Credit based System',
+        title: 'Credit-Based AWS Billing System',
         objective: ['Track AWS service usage on an hourly basis',
 
             'Calculate costs accurately despite pricing API delays',
@@ -21,11 +21,11 @@ export const projects: Project[] = [
             'Provide a credit-based billing mechanism',
 
             'Enable users to view usage and remaining credits in real time'],
-        description: 'Developed an AWS backend system to track real-time service costs on an hourly basis.',
-        detailedDescription: ['This project involved building a robust credit-based billing system for AWS services. It tracks usage in real-time and provides accurate cost estimations even when AWS pricing APIs have latency. The system uses Lambda functions for data ingestion, DynamoDB for storage, and a Next.js frontend for visualization.'],
-        techStack: ['AWS', 'Next.js', 'Lambda', 'DynamoDB', 'Codebuild', 'Api Gateway', 'Cloudwatch', 'S3', 'IAM', 'Policy'],
+        description: 'Built an AWS backend system to track service usage, estimate costs, and manage credit-based billing.',
+        detailedDescription: ['This project involved building a credit-based billing system for AWS services. It tracks usage in near real time and provides cost estimations even when AWS pricing APIs have latency. The system uses Lambda functions for data ingestion, DynamoDB for storage, and a Next.js frontend for visualization.'],
+        techStack: ['AWS', 'Next.js', 'Lambda', 'DynamoDB', 'CodeBuild', 'API Gateway', 'CloudWatch', 'S3', 'IAM', 'Policy'],
         github: 'https://github.com/prasanthmani707',
-        scope: 'The scope of this project includes real-time tracking of EC2 instance usage, calculation of credit consumption based on resource utilization, and generation of accurate cost estimations. It also provides a dashboard usage and cost details, along with backend automation to handle data collection, processing, and updates efficiently.',
+        scope: 'The scope of this project includes tracking EC2 instance usage, calculating credit consumption based on resource utilization, and generating cost estimations. It provides a dashboard for usage and cost details, along with backend automation for data collection, processing, and updates.',
         architecture: `
 graph TD
     subgraph Frontend_Layer [User Interface]
@@ -78,7 +78,7 @@ graph TD
     },
     {
         slug: 'aws-infra-automation-terraform-ansible',
-        title: 'aws-infra-automation-terraform-ansible',
+        title: 'AWS Infrastructure Automation',
         objective: [
             'To design and implement a secure, fully automated cloud infrastructure solution using Terraform and Ansible',
 
@@ -97,7 +97,7 @@ graph TD
             'To reduce manual errors, setup time, and operational complexity for clients'
 
         ],
-        description: 'Developed and implemented an end-to-end AWS infrastructure automation solution using Terraform and Ansible.',
+        description: 'Automated AWS infrastructure provisioning and server configuration using Terraform and Ansible.',
         detailedDescription: ['The project securely used AWS Access Key and Secret Key through environment variables to avoid hard-coded credentials. Using Terraform, I provisioned cloud infrastructure including an Amazon Web Services EC2 instance following Infrastructure as Code (IaC) principles.\n',
             'After infrastructure provisioning, Ansible was used to automatically configure the EC2 instance by installing required packages and setting up services without any manual intervention.\n',
             'The entire workflow was fully automated, repeatable, secure, and designed to reduce manual effort, configuration errors, and deployment time.'
@@ -112,7 +112,7 @@ graph TD
             "AWS CodeBuild",
             "AWS EventBridge",
             "AWS Step Functions",
-            "IAM "
+            "IAM"
         ],
 
         github: 'https://github.com/prasanthmani707',
@@ -162,7 +162,145 @@ G --> P[Destroy IAM Roles & Policies]
 P --> Q[Final Environment Active in User Account]
 
 `
-    },  
+    },
+    {
+        slug: 'splunk-standalone-server-data-onboarding',
+        title: 'Splunk Standalone Monitoring',
+        objective: [
+            'To create a standalone Splunk server for log monitoring and search',
+            'To configure Splunk Enterprise on a Linux server without using a clustered setup',
+            'To connect a client server to Splunk using Universal Forwarder',
+            'To onboard system and application logs into Splunk indexes',
+            'To validate data ingestion using SPL searches and dashboards',
+            'To build a simple monitoring setup for troubleshooting and security visibility'
+        ],
+        description: 'Configured a standalone Splunk server and onboarded Linux/application logs using Universal Forwarder.',
+        detailedDescription: [
+            'This project focused on building a standalone Splunk setup where one Splunk Enterprise server handled indexing, searching, and the web interface. The server was created and configured as the central log monitoring platform for collecting machine data from client systems.\n',
+            'A Splunk Universal Forwarder was installed on a client server and configured to send system logs and application logs to the standalone Splunk server. Indexes, receiving ports, and forwarding settings were configured to complete the end-to-end data onboarding flow.\n',
+            'The project demonstrates practical Splunk administration skills including server setup, log forwarding, index creation, data validation, and SPL-based searching without depending on a large enterprise cluster.'
+        ],
+        techStack: [
+            'Splunk Enterprise',
+            'Splunk Universal Forwarder',
+            'Linux',
+            'AWS EC2',
+            'Security Groups',
+            'SPL',
+            'Log Monitoring',
+            'Data Onboarding'
+        ],
+        github: 'https://github.com/prasanthmani707',
+        scope: 'The scope of this project includes creating a standalone Splunk server, configuring the Splunk web interface, enabling data receiving, connecting a client server through Splunk Universal Forwarder, and onboarding logs such as Linux system logs and application logs. The project covers validating indexed data with SPL searches and creating a basic monitoring workflow for troubleshooting, operational visibility, and security log analysis.',
+        architecture: `
+graph TD
+    A[Admin User] --> B[Splunk Web]
+    B --> C[Standalone Splunk Server]
+    C --> D[(Splunk Indexes)]
+    C --> E[SPL Search]
+
+    F[Client Linux Server] --> G[Universal Forwarder]
+    G -->|Port 9997| C
+    H[System Logs] --> G
+    I[Application Logs] --> G
+
+    J[Security Group Rules] --> C
+    K[Port 8000 Web UI] --> C
+    L[Port 8089 Management] --> C
+    M[Port 9997 Data Receiving] --> C
+`
+    },
+    {
+        slug: 'splunk-non-cluster-distributed-setup',
+        title: 'Splunk Distributed Monitoring',
+        objective: [
+            'To design a distributed Splunk environment without indexer or search head clustering',
+            'To create separate Splunk servers for Search Head, Indexer, and Deployment Server roles',
+            'To configure the Indexer to receive forwarded data from client systems',
+            'To connect the Search Head to the Indexer as a search peer',
+            'To manage Universal Forwarder configuration through the Deployment Server',
+            'To onboard logs from client servers and verify search visibility from the Search Head'
+        ],
+        description: 'Built a non-cluster Splunk setup with separate Search Head, Indexer, Deployment Server, and Forwarder roles.',
+        detailedDescription: [
+            'This project implemented a distributed Splunk architecture without clustering. Separate Linux servers were used for the Search Head, Indexer, and Deployment Server to demonstrate real-world Splunk role separation while keeping the setup simpler than a full clustered enterprise deployment.\n',
+            'The Indexer was configured to receive data from Universal Forwarders, while the Search Head was connected to the Indexer as a search peer. The Deployment Server was used to manage forwarder configurations and push log monitoring inputs to client machines.\n',
+            'The project shows how Splunk components communicate in a distributed environment, how logs are onboarded from client servers, and how data can be searched centrally from the Search Head.'
+        ],
+        techStack: [
+            'Splunk Enterprise',
+            'Search Head',
+            'Indexer',
+            'Deployment Server',
+            'Splunk Universal Forwarder',
+            'Linux',
+            'AWS EC2',
+            'SPL',
+            'Data Onboarding'
+        ],
+        github: 'https://github.com/prasanthmani707',
+        scope: 'The scope of this project includes provisioning multiple Linux servers, assigning Splunk roles, configuring the Indexer as the data receiving layer, connecting the Search Head to the Indexer for distributed search, and using the Deployment Server to manage Universal Forwarder configuration. The project covers forwarding logs from client machines, validating indexed events, and searching onboarded data from the Search Head in a non-cluster distributed Splunk setup.',
+        architecture: `
+graph TD
+    A[Admin User] --> B[Search Head]
+    B -->|Distributed Search| C[Indexer]
+    C --> D[(Splunk Indexes)]
+
+    E[Deployment Server] -->|Forwarder Apps| F[Universal Forwarder]
+    G[Client Server Logs] --> F
+    F -->|Forward Data Port 9997| C
+
+    H[Search Port 8089] --> B
+    I[Receiving Port 9997] --> C
+    J[Splunk Web Port 8000] --> B
+`
+    },
+    {
+        slug: 'aws-lambda-deployment-automation-fastapi',
+        title: 'Lambda Deployment Automation',
+        objective: [
+            'To build a FastAPI backend for managing multiple AWS Lambda deployments',
+            'To organize each Lambda function in a separate folder inside one repository',
+            'To test Lambda code locally before deploying it to AWS',
+            'To deploy Lambda functions without using the AWS Management Console',
+            'To automate build and deployment when code is pushed to the repository',
+            'To reduce manual deployment errors and make Lambda updates repeatable'
+        ],
+        description: 'Built a FastAPI backend to test, package, and deploy multiple AWS Lambda functions automatically.',
+        detailedDescription: [
+            'This project was built to manage multiple AWS Lambda functions from a single repository. Each folder represented one Lambda function, making it easy to separate function code while keeping deployment automation centralized.\n',
+            'A FastAPI backend was used as the local control layer for testing Lambda logic, selecting function folders, building deployment packages, and triggering updates to AWS Lambda without opening the AWS Console.\n',
+            'The repository workflow was designed so that pushing code could automatically start a CI/CD process, build the Lambda package, and update the target Lambda function in AWS. This created a repeatable deployment process for serverless backend development.'
+        ],
+        techStack: [
+            'FastAPI',
+            'Python',
+            'AWS Lambda',
+            'Boto3',
+            'AWS CLI',
+            'GitHub',
+            'CI/CD',
+            'IAM',
+            'CloudWatch'
+        ],
+        github: 'https://github.com/prasanthmani707',
+        scope: 'The scope of this project includes designing a FastAPI backend that manages multiple Lambda function folders, supports local testing, packages selected Lambda code, and deploys updates to AWS Lambda using automation. The project also includes a Git-based CI/CD workflow where repository changes can automatically build and deploy Lambda functions, removing the need for manual AWS Console updates and improving deployment consistency across serverless functions.',
+        architecture: `
+graph TD
+    A[Developer] --> B[Git Repository]
+    B --> C[FastAPI Backend]
+    C --> D[Select Lambda Folder]
+    D --> E[Run Local Test]
+    E --> F[Build Deployment Package]
+    F --> G[Deploy to AWS Lambda]
+    G --> H[CloudWatch Logs]
+
+    B --> I[Code Push]
+    I --> J[CI CD Pipeline]
+    J --> F
+    G --> K[Updated Lambda Function]
+`
+    },
     {
         slug: 'smart-download-organizer',
         title: 'Smart Download Organizer',

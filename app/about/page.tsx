@@ -13,7 +13,7 @@ export default function About() {
             >
                 <h1 className="text-4xl font-bold mb-4 text-gradient">About Me</h1>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                    Get to know more about my background, experience, and journey in tech.
+                    Backend, cloud automation, and observability projects built with AWS, Python, Splunk, Terraform, and Ansible.
                 </p>
             </motion.div>
 
@@ -30,11 +30,7 @@ export default function About() {
                         <h2 className="text-2xl font-bold">Bio</h2>
                     </div>
                     <p className="text-gray-300 leading-relaxed mb-4">
-                         Associate Software Engineer with strong experience in backend development and AWS serverless
-technologies. Skilled in building scalable, event-driven applications using Python and cloud
-services. Experienced in developing POCs, automating infrastructure, and building cybersecurity
-lab platforms.
-
+                        Associate Software Engineer with 1 year of hands-on experience in backend development, AWS serverless services, infrastructure automation, and monitoring platforms. Skilled in building Python-based automation, event-driven cloud workflows, deployment pipelines, and practical proof-of-concept systems.
                     </p>
                 </motion.div>
 
@@ -52,7 +48,8 @@ lab platforms.
                         </div>
                         <ul className="space-y-4 text-gray-300">
                             <li className="border-l-2 border-purple-500 pl-4">
-                                <h3 className="font-bold text-white">Associate Software engineer </h3>
+                                <h3 className="font-bold text-white">Associate Software Engineer</h3>
+                                <p className="text-sm text-gray-400 mt-1">Backend development, AWS serverless, automation, and monitoring projects.</p>
                             </li>
                         </ul>
                     </motion.div>
@@ -69,7 +66,7 @@ lab platforms.
                         </div>
                         <ul className="space-y-4 text-gray-300">
                             <li className="border-l-2 border-green-500 pl-4">
-                                <h3 className="font-bold text-white">BCA</h3>
+                                <h3 className="font-bold text-white">Bachelor of Computer Applications (BCA)</h3>
 
                             </li>
                         </ul>
